@@ -22,3 +22,9 @@ def test_fix_phone_num():
   # Now check that a too short string gives a ValueError
   with pytest.raises(ValueError):
     fix_phone_num("51")
+
+def test_fix_phone_num_with_special_chars():
+    with pytest.raises(ValueError):
+        fix_phone_num("555-442-98761")
+    with pytest.raises(ValueError):
+        fix_phone_num("(321) 654 3333")
