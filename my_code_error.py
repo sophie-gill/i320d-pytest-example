@@ -1,6 +1,13 @@
 import pytest
 
 def fix_phone_num(phone_num_to_fix):
+  # Remove all non-digit chars
+  cleaned_num = []
+  for char in phone_num_to_fix:
+      if char.isdigit():
+          cleaned_num.append(char)
+  phone_num_to_fix = "".join(cleaned_num)
+  
   # can only handle numbers that are exactly 10 digits long
   if (len(phone_num_to_fix) != 10):
     raise ValueError("Can only format numbers that are exactly 10 digits long")
