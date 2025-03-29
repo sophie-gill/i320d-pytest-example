@@ -1,7 +1,12 @@
 import pytest
 
 def fix_phone_num(phone_num_to_fix):
-  # Remove all non-digit chars
+  # Check for invalid chars
+  valid_chars = "0123456789()- "
+  if any(char not in valid_chars for char in phone_num_to_fix):
+    raise ValueError("Invalid characters in phone number")
+  
+  # Remove all the non-digit chars
   cleaned_num = []
   for char in phone_num_to_fix:
       if char.isdigit():
