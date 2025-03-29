@@ -29,3 +29,7 @@ def test_fix_phone_num_with_special_chars():
         fix_phone_num("555-442-98761")
     with pytest.raises(ValueError):
         fix_phone_num("(321) 654 3333")
+
+def test_fix_phone_num_non_digit_input():
+    with pytest.raises(ValueError):
+        fix_phone_num("512-abc-8823")
