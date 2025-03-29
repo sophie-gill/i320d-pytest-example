@@ -19,9 +19,10 @@ def test_fix_phone_num():
   assert fix_phone_num("5554429876") == '(555) 442 9876'
   assert fix_phone_num("3216543333") == '(321) 654 3333'
   
-  # Now check that a too short string gives a ValueError
-  with pytest.raises(ValueError):
-    fix_phone_num("51")
+# Now check that a too short string gives a ValueError
+def test_fix_phone_num_invalid_length():
+    with pytest.raises(ValueError):
+        fix_phone_num("51")
 
 def test_fix_phone_num_with_special_chars():
     with pytest.raises(ValueError):
